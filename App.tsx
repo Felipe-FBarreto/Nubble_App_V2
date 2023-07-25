@@ -6,7 +6,10 @@ const App = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text>Hello Word</Text>
+        <Text preset="headingLarge" style={{color: 'red'}}>
+          Hello Word
+        </Text>
+        <Text style={{color: 'orange'}}>Hello Word</Text>
       </View>
     </SafeAreaView>
   );
