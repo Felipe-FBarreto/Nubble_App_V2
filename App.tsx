@@ -15,18 +15,10 @@ const App = () => {
             Hello Word
           </Text>
           <Box mt="s24" mb="s24">
-            <Button
-              backgroundColor="primary"
-              borderRadius="s16"
-              title="CoffStack"
-            />
+            <Button disabled title="Primary" />
           </Box>
-          <Button
-            backgroundColor="primary"
-            borderRadius="s16"
-            loading
-            title="loading"
-          />
+          <Button disabled loading preset="outline" mb="s24" title="Outline" />
+          <Button loading title="loading" />
         </View>
       </SafeAreaView>
     </ThemeProvider>
