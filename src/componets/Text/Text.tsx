@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
+import {Text as RST} from '../Box/Box';
 //font size e font weight
 
 interface TextProps extends RNTextProps {

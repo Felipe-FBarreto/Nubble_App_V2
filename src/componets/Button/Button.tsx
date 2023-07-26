@@ -1,23 +1,30 @@
-import {TouchableOpacity} from 'react-native';
+import {ActivityIndicator, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Text from '../Text/Text';
 import {useAppTheme} from '../../hooks/useAppTheme';
+import {Box, RestyleComponentProps, TouchableOpacityBox} from '../Box/Box';
 
-export default function Button() {
+interface ButtonProps extends RestyleComponentProps {
+  title: string;
+  loading?: boolean;
+}
+
+export default function Button({title, loading, ...rest}: ButtonProps) {
   const {colors} = useAppTheme();
   return (
-    <TouchableOpacity
-      style={{
-        width: '100%',
-        height: 40,
-        backgroundColor: colors.primary,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 12,
-      }}>
-      <Text bold preset="headingMedium" style={{color: colors.background}}>
-        CoffStack
-      </Text>
-    </TouchableOpacity>
+    <TouchableOpacityBox
+      paddingHorizontal="s20"
+      height={50}
+      justifyContent="center"
+      alignItems="center"
+      {...rest}>
+      {loading ? (
+        <ActivityIndicator size="large" />
+      ) : (
+        <Text bold preset="headingMedium" style={{color: colors.background}}>
+          {title}
+        </Text>
+      )}
+    </TouchableOpacityBox>
   );
 }
