@@ -11,7 +11,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <SafeAreaView>
         <View style={{paddingHorizontal: 20}}>
-          <Text bold>Hello Word</Text>
+          <Text preset="headingLarge" mt="s32" color="carrotSecondary" bold>
+            Hello Word
+          </Text>
           <Box mt="s24" mb="s24">
             <Button
               backgroundColor="primary"

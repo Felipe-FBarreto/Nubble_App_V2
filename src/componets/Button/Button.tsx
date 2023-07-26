@@ -21,7 +21,7 @@ export default function Button({title, loading, ...rest}: ButtonProps) {
       {loading ? (
         <ActivityIndicator size="large" />
       ) : (
-        <Text bold preset="headingMedium" style={{color: colors.background}}>
+        <Text color="primaryContrast" bold preset="headingMedium">
           {title}
         </Text>
       )}

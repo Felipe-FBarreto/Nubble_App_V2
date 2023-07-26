@@ -1,14 +1,12 @@
-import {
-  Text as RNText,
-  TextProps as RNTextProps,
-  TextStyle,
-} from 'react-native';
+import {TextStyle} from 'react-native';
 import React from 'react';
+import {createText} from '@shopify/restyle';
+import {Theme} from '../../theme/theme';
 
-import {Text as RST} from '../Box/Box';
-//font size e font weight
+export const SRText = createText<Theme>();
+type SRTextProps = React.ComponentProps<typeof SRText>;
 
-interface TextProps extends RNTextProps {
+interface TextProps extends SRTextProps {
   preset?: TextVariants; // preset = valores pre definidos
   bold?: boolean;
   italic?: boolean;
@@ -56,9 +54,9 @@ export default function Text({
   const fontFamily = getFontFamily(preset, bold, italic, semiBold);
 
   return (
-    <RNText style={[$fontSizes[preset], style, {fontFamily}]} {...rest}>
+    <SRText style={[$fontSizes[preset], style, {fontFamily}]} {...rest}>
       {children}
-    </RNText>
+    </SRText>
   );
 }
 
