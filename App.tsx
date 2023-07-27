@@ -20,8 +20,8 @@ const App = () => {
           </Box>
           <Button disabled loading preset="outline" mb="s24" title="Outline" />
           <Button loading title="loading" />
-          <Icon name="eyeOff" size={70} color="error" />
-          <Icon name="eyeOn" size={50} color="carrotSecondary" />
+          <Icon name="eyeOff" color="error" size={70} />
+          <Icon name="eyeOn" color="primary" size={70} />
         </View>
       </SafeAreaView>
     </ThemeProvider>
