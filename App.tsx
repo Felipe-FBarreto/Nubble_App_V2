@@ -23,7 +23,12 @@ const App = () => {
             <TextInput label="E-mail" placeholder="Digite seu e-mail" />
           </Box>
           <Box mb="s8">
-            <TextInput label="Senha" placeholder="Digite sua senha" />
+            <TextInput
+              RightComponent={<Icon name="eyeOff" size={20} />}
+              errorMessage="Mensagem de erro"
+              label="Senha"
+              placeholder="Digite sua senha"
+            />
           </Box>
           <Text preset="paragraphMedium" bold color="primary">
             Esqueci minha senha
