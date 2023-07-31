@@ -19,17 +19,18 @@ const App = () => {
           <Text preset="paragraphLarge">
             Digite seu e-mail e senha para entrar
           </Text>
-          <Box mb="s16" mt="s40">
-            <TextInput label="E-mail" placeholder="Digite seu e-mail" />
-          </Box>
-          <Box mb="s8">
-            <TextInput
-              RightComponent={<Icon name="eyeOff" size={20} />}
-              errorMessage="Mensagem de erro"
-              label="Senha"
-              placeholder="Digite sua senha"
-            />
-          </Box>
+          <TextInput
+            label="E-mail"
+            placeholder="Digite seu e-mail"
+            BoxProps={{mb: 's16', mt: 's40'}}
+          />
+          <TextInput
+            RightComponent={<Icon name="eyeOff" size={20} />}
+            errorMessage="Mensagem de erro"
+            label="Senha"
+            placeholder="Digite sua senha"
+            BoxProps={{mb: 's8'}}
+          />
           <Text preset="paragraphMedium" bold color="primary">
             Esqueci minha senha
           </Text>
