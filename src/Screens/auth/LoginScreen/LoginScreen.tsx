@@ -5,6 +5,7 @@ import TextInput from '../../../componets/Text/TextInput';
 import {Icon} from '../../../componets/Icon/Icon';
 import Button from '../../../componets/Button/Button';
 import {Screen} from '../../../componets/Screen/Screen';
+import { PasswordInput } from '../../../componets/PasswordInput/PasswordInput';
 
 export function LoginScreen() {
   return (
@@ -18,8 +19,7 @@ export function LoginScreen() {
         placeholder="Digite seu e-mail"
         BoxProps={{mb: 's16', mt: 's40'}}
       />
-      <TextInput
-        RightComponent={<Icon name="eyeOff" size={20} />}
+      <PasswordInput
         errorMessage="Mensagem de erro"
         label="Senha"
         placeholder="Digite sua senha"
