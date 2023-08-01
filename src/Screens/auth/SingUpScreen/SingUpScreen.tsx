@@ -7,7 +7,7 @@ import Button from '../../../componets/Button/Button';
 
 export function SingUpScreen() {
   return (
-    <Screen canGoBack>
+    <Screen canGoBack scrollable>
       <Text preset="headingLarge" bold mb="s32">
         Criar uma conta
       </Text>
@@ -28,6 +28,7 @@ export function SingUpScreen() {
         placeholder="Digite sua senha"
         RightComponent={<EyeOffIcon />}
       />
+
       <Button mt="s48" title="Criar minha conta" />
     </Screen>
   );
