@@ -4,7 +4,7 @@ import Text from '../../../componets/Text/Text';
 import TextInput from '../../../componets/Text/TextInput';
 import {EyeOffIcon} from '../../../assets/icons/EyeOffIcon';
 import Button from '../../../componets/Button/Button';
-import { PasswordInput } from '../../../componets/PasswordInput/PasswordInput';
+import {PasswordInput} from '../../../componets/PasswordInput/PasswordInput';
 
 export function SingUpScreen() {
   return (
@@ -23,7 +23,7 @@ export function SingUpScreen() {
         label="E-mail"
         placeholder="Digite seu e-mail"
       />
-      <PasswordInput label='Senha' placeholder='Digite sua senha'/>
+      <PasswordInput label="Senha" placeholder="Digite sua senha" />
 
       <Button mt="s48" title="Criar minha conta" />
     </Screen>

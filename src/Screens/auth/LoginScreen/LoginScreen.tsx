@@ -5,9 +5,16 @@ import TextInput from '../../../componets/Text/TextInput';
 import {Icon} from '../../../componets/Icon/Icon';
 import Button from '../../../componets/Button/Button';
 import {Screen} from '../../../componets/Screen/Screen';
-import { PasswordInput } from '../../../componets/PasswordInput/PasswordInput';
+import {PasswordInput} from '../../../componets/PasswordInput/PasswordInput';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../../routes/Routes';
 
-export function LoginScreen() {
+type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
+
+export function LoginScreen({navigation}: ScreenProps) {
+  function navigateToSingUpScreen() {
+    navigation.navigate('SingUpScreen');
+  }
   return (
     <Screen>
       <Text mb="s10" bold preset="headingLarge">
@@ -29,7 +36,12 @@ export function LoginScreen() {
         Esqueci minha senha
       </Text>
       <Button mt="s48" title="Entrar" />
-      <Button mt="s12" title="Criar uma conta" preset="outline" />
+      <Button
+        onPress={navigateToSingUpScreen}
+        mt="s12"
+        title="Criar uma conta"
+        preset="outline"
+      />
     </Screen>
   );
 }
