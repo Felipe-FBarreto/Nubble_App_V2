@@ -5,8 +5,22 @@ import TextInput from '../../../componets/Text/TextInput';
 import {EyeOffIcon} from '../../../assets/icons/EyeOffIcon';
 import Button from '../../../componets/Button/Button';
 import {PasswordInput} from '../../../componets/PasswordInput/PasswordInput';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../../routes/Routes';
+type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SingUpScreen'>;
 
-export function SingUpScreen() {
+export function SingUpScreen({navigation}: ScreenProps) {
+  function submitForm() {
+    navigation.navigate('SucessScreen', {
+      title: 'Sua conta foi criada com sucesso!',
+      description: 'Agora é só fazer login na nossa plataforma',
+      icon: {
+        name: 'checkRound',
+        color: 'primary',
+      },
+    });
+  }
+
   return (
     <Screen canGoBack scrollable>
       <Text preset="headingLarge" bold mb="s32">
@@ -25,7 +39,7 @@ export function SingUpScreen() {
       />
       <PasswordInput label="Senha" placeholder="Digite sua senha" />
 
-      <Button mt="s48" title="Criar minha conta" />
+      <Button onPress={submitForm} mt="s48" title="Criar minha conta" />
     </Screen>
   );
 }

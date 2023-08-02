@@ -6,7 +6,7 @@ import Text from '../Text/Text';
 import {KeyboardAvoidingView, Platform} from 'react-native';
 import {ScrollViewContainer, ViewContainer} from './components/ScreenContainer';
 import {useAppTheme} from '../../hooks/useAppTheme';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 interface ScreenProps {
   children: React.ReactNode;
@@ -22,7 +22,7 @@ export function Screen({
   const Container = scrollable ? ScrollViewContainer : ViewContainer;
   const {top, bottom} = useAppSafeArea();
   const {colors} = useAppTheme();
-  const {goBack} = useNavigation()
+  const {goBack} = useNavigation();
   return (
     <KeyboardAvoidingView
       style={{flex: 1}}
