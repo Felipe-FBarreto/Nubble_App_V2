@@ -7,11 +7,13 @@ import Button from '../../../componets/Button/Button';
 import {PasswordInput} from '../../../componets/PasswordInput/PasswordInput';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../routes/Routes';
+import {useNavigationResetSucess} from '../../../hooks/useNavigationResetSucess';
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SingUpScreen'>;
 
 export function SingUpScreen({navigation}: ScreenProps) {
+  const {reset} = useNavigationResetSucess();
   function submitForm() {
-    navigation.navigate('SucessScreen', {
+    reset({
       title: 'Sua conta foi criada com sucesso!',
       description: 'Agora é só fazer login na nossa plataforma',
       icon: {
