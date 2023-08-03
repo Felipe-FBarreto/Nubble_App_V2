@@ -44,7 +44,7 @@ export function LoginScreen({navigation}: ScreenProps) {
       <Controller
         control={control}
         rules={{
-          required: 'E-mail obrigatória',
+          required: 'E-mail obrigatório',
           pattern: {
             value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/,
             message: 'E-mail inválido',
