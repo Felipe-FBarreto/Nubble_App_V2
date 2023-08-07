@@ -9,6 +9,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../routes/Routes';
 import {useNavigationResetSucess} from '../../../hooks/useNavigationResetSucess';
 import {useForm, Control, Controller} from 'react-hook-form';
+import {FormTextInput} from '../../../componets/Form/FormTextInput/FormTextInput';
+import {FormPasswordInput} from '../../../componets/Form/FormPasswordInput/FormPasswordInput';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SingUpScreen'>;
 type SingUpFormType = {
@@ -44,7 +46,13 @@ export function SingUpScreen({}: ScreenProps) {
       <Text preset="headingLarge" bold mb="s32">
         Criar uma conta
       </Text>
-      <Controller
+      <FormTextInput
+        control={control}
+        name="username"
+        autoCapitalize="none"
+        label="UserName"
+        placeholder="@"
+        BoxProps={{mb: 's20'}}
         rules={{
           required: 'Username obrigatório',
           pattern: {
@@ -52,20 +60,8 @@ export function SingUpScreen({}: ScreenProps) {
             message: `Seu username deve começa com @${'\n'} E ter no minimo de 6 letras minúsculas`,
           },
         }}
-        control={control}
-        name="username"
-        render={({field: {value, onChange}, fieldState}) => (
-          <TextInput
-            value={value}
-            onChangeText={onChange}
-            errorMessage={fieldState.error?.message}
-            BoxProps={{mb: 's20'}}
-            label="Seu username"
-            placeholder="@"
-          />
-        )}
       />
-      <Controller
+      <FormTextInput
         control={control}
         rules={{
           required: 'Digite seu nome completo',
@@ -75,18 +71,12 @@ export function SingUpScreen({}: ScreenProps) {
           },
         }}
         name="fullName"
-        render={({field: {value, onChange}, fieldState}) => (
-          <TextInput
-            errorMessage={fieldState.error?.message}
-            value={value}
-            onChangeText={onChange}
-            BoxProps={{mb: 's20'}}
-            label="Nome completo"
-            placeholder="Digite seu nome completo"
-          />
-        )}
+        label="Nome completo"
+        placeholder="Digite seu nome completo"
+        BoxProps={{mb: 's20'}}
       />
-      <Controller
+
+      <FormTextInput
         control={control}
         rules={{
           required: 'E-mail obrigatório',
@@ -96,37 +86,16 @@ export function SingUpScreen({}: ScreenProps) {
           },
         }}
         name="email"
-        render={({field, fieldState}) => (
-          <TextInput
-            errorMessage={fieldState.error?.message}
-            value={field.value}
-            onChangeText={field.onChange}
-            label="E-mail"
-            placeholder="Digite seu e-mail"
-            BoxProps={{mb: 's20'}}
-          />
-        )}
+        label="E-mail"
+        placeholder="Digite seue-mail"
+        BoxProps={{mb: 's20'}}
       />
-      <Controller
+
+      <FormPasswordInput
         control={control}
-        rules={{
-          required: 'Senha obrigatória',
-          pattern: {
-            value:
-              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-            message: ` Mínimo de oito caracteres${'\n'} Pelo menos uma Letra maiúscula${'\n'} Uma letra minúscula${'\n'} Mm número${'\n'} E um caractere especial`,
-          },
-        }}
         name="password"
-        render={({field, fieldState}) => (
-          <PasswordInput
-            errorMessage={fieldState.error?.message}
-            value={field.value}
-            onChangeText={field.onChange}
-            label="Senha"
-            placeholder="Digite sua senha"
-          />
-        )}
+        label="Senha"
+        placeholder="Digite sua senha"
       />
 
       <Button

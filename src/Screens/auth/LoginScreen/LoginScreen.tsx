@@ -8,11 +8,14 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../routes/Routes';
 import {useForm, Controller} from 'react-hook-form';
 import {Alert} from 'react-native';
+import {FormTextInput} from '../../../componets/Form/FormTextInput/FormTextInput';
+import {FormPasswordInput} from '../../../componets/Form/FormPasswordInput/FormPasswordInput';
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
 type LoginFormType = {
   email: string;
   password: string;
 };
+
 export function LoginScreen({navigation}: ScreenProps) {
   // const [email,setEmail] = useState('')
   // const [password,sePassword] = useState('')
@@ -41,8 +44,9 @@ export function LoginScreen({navigation}: ScreenProps) {
         Olá!
       </Text>
       <Text preset="paragraphLarge">Digite seu e-mail e senha para entrar</Text>
-      <Controller
+      <FormTextInput
         control={control}
+        name="email"
         rules={{
           required: 'E-mail obrigatório',
           pattern: {
@@ -50,39 +54,16 @@ export function LoginScreen({navigation}: ScreenProps) {
             message: 'E-mail inválido',
           },
         }}
-        name="email"
-        render={({field, fieldState}) => (
-          <TextInput
-            errorMessage={fieldState.error?.message}
-            value={field.value}
-            onChangeText={field.onChange}
-            label="E-mail"
-            placeholder="Digite seu e-mail"
-            BoxProps={{mb: 's16', mt: 's40'}}
-          />
-        )}
+        label="E-mail"
+        placeholder="Digite seu e-mail"
+        BoxProps={{mb: 's16', mt: 's40'}}
       />
-      <Controller
+
+      <FormPasswordInput
         control={control}
-        rules={{
-          required: 'Senha obrigatória',
-          pattern: {
-            value:
-              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-            message: ` Mínimo de oito caracteres${'\n'} Pelo menos uma Letra maiúscula${'\n'} Uma letra minúscula${'\n'} Mm número${'\n'} E um caractere especial`,
-          },
-        }}
         name="password"
-        render={({field, fieldState}) => (
-          <PasswordInput
-            errorMessage={fieldState.error?.message}
-            value={field.value}
-            onChangeText={field.onChange}
-            label="Senha"
-            placeholder="Digite sua senha"
-            BoxProps={{mb: 's8'}}
-          />
-        )}
+        label="Senha"
+        placeholder="Digite sua senha"
       />
 
       <Text
