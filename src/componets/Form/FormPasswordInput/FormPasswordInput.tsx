@@ -11,14 +11,6 @@ export function FormPasswordInput<FormType extends FieldValues>({
   return (
     <Controller
       control={control}
-      rules={{
-        required: 'Senha obrigatória',
-        pattern: {
-          value:
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-          message: ` Mínimo de 8 caracteres${'\n'} • 1 letra maiúscula${'\n'} • 1 letra minúscula${'\n'} • 1 número${'\n'} • 1 caractere especial`,
-        },
-      }}
       name={name}
       render={({field, fieldState}) => (
         <PasswordInput
