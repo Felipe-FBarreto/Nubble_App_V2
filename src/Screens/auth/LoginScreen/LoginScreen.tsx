@@ -10,17 +10,13 @@ import {useForm, Controller} from 'react-hook-form';
 import {Alert} from 'react-native';
 import {FormTextInput} from '../../../componets/Form/FormTextInput/FormTextInput';
 import {FormPasswordInput} from '../../../componets/Form/FormPasswordInput/FormPasswordInput';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {loginSchema, LoginSchema} from './loginSchema';
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
-type LoginFormType = {
-  email: string;
-  password: string;
-};
 
 export function LoginScreen({navigation}: ScreenProps) {
-  // const [email,setEmail] = useState('')
-  // const [password,sePassword] = useState('')
-
-  const {control, formState, handleSubmit} = useForm<LoginFormType>({
+  const {control, formState, handleSubmit} = useForm<LoginSchema>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
       password: '',
@@ -28,7 +24,7 @@ export function LoginScreen({navigation}: ScreenProps) {
     mode: 'onChange',
   });
 
-  function submitForm({email, password}: LoginFormType) {
+  function submitForm({email, password}: LoginSchema) {
     Alert.alert(`Email: ${email} ${'\n'} Senha: ${password}`);
   }
   function navigateToSingUpScreen() {
@@ -46,14 +42,8 @@ export function LoginScreen({navigation}: ScreenProps) {
       <Text preset="paragraphLarge">Digite seu e-mail e senha para entrar</Text>
       <FormTextInput
         control={control}
+        autoCapitalize="none"
         name="email"
-        rules={{
-          required: 'E-mail obrigatório',
-          pattern: {
-            value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/,
-            message: 'E-mail inválido',
-          },
-        }}
         label="E-mail"
         placeholder="Digite seu e-mail"
         BoxProps={{mb: 's16', mt: 's40'}}

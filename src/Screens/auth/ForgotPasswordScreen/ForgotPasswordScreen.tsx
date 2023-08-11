@@ -7,16 +7,16 @@ import {RootStackParamList} from '../../../routes/Routes';
 import {useNavigationResetSucess} from '../../../hooks/useNavigationResetSucess';
 import {FormTextInput} from '../../../componets/Form/FormTextInput/FormTextInput';
 import {useForm} from 'react-hook-form';
+import {forgotSchema, ForgotSchema} from './forgotSchema';
+import {zodResolver} from '@hookform/resolvers/zod';
 type ScreenProps = NativeStackScreenProps<
   RootStackParamList,
   'ForgotPassawordScreen'
 >;
-type ForgotPasswordProps = {
-  email: string;
-};
 
 export function ForgotPasswordScreen({}: ScreenProps) {
-  const {control, handleSubmit, formState} = useForm<ForgotPasswordProps>({
+  const {control, handleSubmit, formState} = useForm<ForgotSchema>({
+    resolver: zodResolver(forgotSchema),
     defaultValues: {
       email: '',
     },
@@ -44,13 +44,7 @@ export function ForgotPasswordScreen({}: ScreenProps) {
       </Text>
       <FormTextInput
         control={control}
-        rules={{
-          required: 'E-mail obrigatório',
-          pattern: {
-            value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/,
-            message: 'E-mail inválido',
-          },
-        }}
+        autoCapitalize="none"
         name="email"
         label="E-mail"
         placeholder="Digite seue-mail"

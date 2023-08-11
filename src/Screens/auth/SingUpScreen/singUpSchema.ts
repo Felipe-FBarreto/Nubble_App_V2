@@ -1,14 +1,10 @@
 import React from "react";
 import {z} from 'zod'
 
-type SingUpFormType = {
-  username: string;
-  fullName: string;
-  email: string;
-  password: string;
-};
+
 
 const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+
 const message = ` Mínimo de 8 caracteres${'\n'} • 1 letra maiúscula${'\n'} • 1 letra minúscula${'\n'} • 1 número${'\n'} • 1 caractere especial`
 
 export const singUpSchema = z.object({
