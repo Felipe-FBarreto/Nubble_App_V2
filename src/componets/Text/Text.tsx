@@ -6,14 +6,14 @@ import {Theme} from '../../theme/theme';
 export const SRText = createText<Theme>();
 type SRTextProps = React.ComponentProps<typeof SRText>;
 
-interface TextProps extends SRTextProps {
+export interface TextProps extends SRTextProps {
   preset?: TextVariants; // preset = valores pré definidos
   bold?: boolean;
   italic?: boolean;
   semiBold?: boolean;
 }
 
-export default function Text({
+export function Text({
   children,
   style,
   bold,

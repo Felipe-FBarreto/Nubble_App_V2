@@ -1,11 +1,13 @@
 import {} from 'react-native';
 import React from 'react';
-import Text from '../Text/Text';
-import {useAppTheme} from '../../hooks/useAppTheme';
-import {RestyleComponentProps, TouchableOpacityBox} from '../Box/Box';
+import {
+  Text,
+  ActivityIndicator,
+  RestyleComponentProps,
+  TouchableOpacityBox,
+} from '@components';
+import {useAppTheme} from '@hooks';
 import {buttonPresets} from './buttonPresets';
-import {ActivityIndicator} from '../ActivityIndicator/ActivityIndicator';
-
 export type ButtonPreset = 'primary' | 'outline';
 
 interface ButtonProps extends RestyleComponentProps {
@@ -15,7 +17,7 @@ interface ButtonProps extends RestyleComponentProps {
   disabled?: boolean;
 }
 
-export default function Button({
+export function Button({
   title,
   loading,
   preset = 'primary',

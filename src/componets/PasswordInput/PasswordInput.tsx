@@ -1,8 +1,6 @@
-import {Pressable} from 'react-native';
 import React, {useState} from 'react';
-import TextInput, {TextInputProps} from '../Text/TextInput';
-import {EyeOffIcon} from '../../assets/icons/EyeOffIcon';
-import {EyeOnIcon} from '../../assets/icons/EyeOnIcon';
+import {TextInput, TextInputProps} from '@components';
+
 import {Icon} from '../Icon/Icon';
 
 type PasswordInputProps = Omit<TextInputProps, 'RightComponent'>;
