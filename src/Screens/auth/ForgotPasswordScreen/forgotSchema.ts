@@ -1,10 +1,7 @@
-import React from "react";
-import {z} from 'zod'
-
+import {z} from 'zod';
 
 export const forgotSchema = z.object({
-  email: z.string().email('Email inválido')
-})
+  email: z.string().email('Email inválido'),
+});
 
-
-export type ForgotSchema = z.infer<typeof forgotSchema>
+export type ForgotSchema = z.infer<typeof forgotSchema>;

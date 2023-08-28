@@ -1,6 +1,6 @@
-import { ThemeColors } from "../../theme/theme";
-import { RestyleComponentProps } from "../Box/Box";
-import { ButtonPreset } from "./Button";
+import {ThemeColors} from '../../theme/theme';
+import {RestyleComponentProps} from '../Box/Box';
+import {ButtonPreset} from './Button';
 
 interface ButtonUI {
   container: RestyleComponentProps;
@@ -8,39 +8,39 @@ interface ButtonUI {
 }
 
 interface buttonType {
-  default:ButtonUI
-  disabled:ButtonUI
+  default: ButtonUI;
+  disabled: ButtonUI;
 }
 
-export const buttonPresets: Record<ButtonPreset,buttonType > = {
+export const buttonPresets: Record<ButtonPreset, buttonType> = {
   primary: {
-    default:{
+    default: {
       container: {
         backgroundColor: 'primary',
       },
       content: 'primaryContrast',
     },
-    disabled:{
+    disabled: {
       container: {
         backgroundColor: 'gray4',
       },
       content: 'gray2',
-    }
+    },
   },
   outline: {
-   default:{
-    container: {
-      borderWidth: 1,
-      borderColor: 'primary',
+    default: {
+      container: {
+        borderWidth: 1,
+        borderColor: 'primary',
+      },
+      content: 'primary',
     },
-    content: 'primary',
-   },
-   disabled:{
-    container: {
-      borderWidth: 1,
-      borderColor: 'gray4',
+    disabled: {
+      container: {
+        borderWidth: 1,
+        borderColor: 'gray4',
+      },
+      content: 'gray2',
     },
-    content: 'gray2',
-   }
   },
 };
