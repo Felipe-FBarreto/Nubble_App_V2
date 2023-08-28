@@ -1,10 +1,9 @@
 import React from 'react';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '@routes';
-import {useNavigationResetSucess} from '@hooks';
-import {useForm} from 'react-hook-form';
-import {SingUpSchema, singUpSchema} from './singUpSchema';
+
 import {zodResolver} from '@hookform/resolvers/zod';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {useForm} from 'react-hook-form';
+
 import {
   Text,
   Button,
@@ -12,6 +11,11 @@ import {
   FormTextInput,
   Screen,
 } from '@components';
+import {useNavigationResetSucess} from '@hooks';
+import {RootStackParamList} from '@routes';
+
+import {SingUpSchema, singUpSchema} from './singUpSchema';
+
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SingUpScreen'>;
 
 export function SingUpScreen({}: ScreenProps) {

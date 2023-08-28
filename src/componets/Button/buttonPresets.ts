@@ -1,5 +1,6 @@
 import {ThemeColors} from '../../theme/theme';
 import {RestyleComponentProps} from '../Box/Box';
+
 import {ButtonPreset} from './Button';
 
 interface ButtonUI {

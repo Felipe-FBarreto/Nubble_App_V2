@@ -1,6 +1,8 @@
-import {TextStyle} from 'react-native';
 import React from 'react';
+import {TextStyle} from 'react-native';
+
 import {createText} from '@shopify/restyle';
+
 import {Theme} from '../../theme/theme';
 
 export const SRText = createText<Theme>();

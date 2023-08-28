@@ -1,12 +1,13 @@
 import {} from 'react-native';
 import React from 'react';
+
 import {
   Text,
   ActivityIndicator,
   RestyleComponentProps,
   TouchableOpacityBox,
 } from '@components';
-import {useAppTheme} from '@hooks';
+
 import {buttonPresets} from './buttonPresets';
 export type ButtonPreset = 'primary' | 'outline';
 
@@ -24,8 +25,6 @@ export function Button({
   disabled,
   ...rest
 }: ButtonProps) {
-  const {colors} = useAppTheme();
-
   const buttonPreset = buttonPresets[preset][disabled ? 'disabled' : 'default'];
 
   return (
