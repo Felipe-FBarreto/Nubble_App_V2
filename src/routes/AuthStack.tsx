@@ -26,8 +26,7 @@ const Stack = createNativeStackNavigator<AuthStackParamList>();
 export function AuthStack() {
   return (
     <Stack.Navigator
-      screenOptions={{headerShown: false, fullScreenGestureEnabled: true}}
-      initialRouteName="LoginScreen">
+      screenOptions={{headerShown: false, fullScreenGestureEnabled: true}}>
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="SingUpScreen" component={SingUpScreen} />
       <Stack.Screen name="SucessScreen" component={SucessScreen} />
