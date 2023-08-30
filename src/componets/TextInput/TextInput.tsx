@@ -20,6 +20,7 @@ export function TextInput({
   label,
   errorMessage,
   RightComponent,
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   BoxProps,
   ...rest
 }: TextInputProps) {

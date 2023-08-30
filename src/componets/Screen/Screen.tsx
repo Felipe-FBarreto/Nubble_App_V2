@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {KeyboardAvoidingView, Platform} from 'react-native';
 
@@ -28,7 +29,7 @@ export function Screen({
   return (
     <KeyboardAvoidingView
       style={{flex: 1}}
-      behavior={Platform.OS == 'ios' ? 'padding' : undefined}>
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <Container backgroundColor={colors.background}>
         <Box
           style={{paddingTop: top, paddingBottom: bottom}}

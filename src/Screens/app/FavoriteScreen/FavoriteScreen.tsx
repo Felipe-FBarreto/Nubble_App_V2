@@ -1,7 +1,9 @@
-import {Screen, Text} from '@components';
 import React from 'react';
 
-export function FavoriteScreen() {
+import {Screen, Text} from '@components';
+import {AppTabStackProps} from '@routes';
+
+export function FavoriteScreen({}: AppTabStackProps<'FavoriteScreen'>) {
   return (
     <Screen>
       <Text preset="headingLarge"> Favorite Screen </Text>

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {Button, Screen, Text} from '@components';
-import {AppScreenProps} from '@routes';
+import {AppTabStackProps} from '@routes';
 
-export function HomeScreen({navigation}: AppScreenProps<'HomeScreen'>) {
+export function HomeScreen({navigation}: AppTabStackProps<'HomeScreen'>) {
   return (
     <Screen>
       <Text preset="headingLarge" bold>

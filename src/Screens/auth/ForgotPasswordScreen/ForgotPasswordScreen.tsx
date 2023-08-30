@@ -1,13 +1,13 @@
 import React from 'react';
 
+import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm} from 'react-hook-form';
 
 import {Text, FormTextInput, Button, Screen} from '@components';
 import {useNavigationResetSucess} from '@hooks';
+import {AuthScreenProps} from '@routes';
 
 import {forgotSchema, ForgotSchema} from './forgotSchema';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {AuthScreenProps} from '@routes';
 
 export function ForgotPasswordScreen({}: AuthScreenProps<'ForgotPassawordScreen'>) {
   const {control, handleSubmit, formState} = useForm<ForgotSchema>({

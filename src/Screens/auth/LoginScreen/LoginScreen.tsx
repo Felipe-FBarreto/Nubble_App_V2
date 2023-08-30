@@ -11,9 +11,9 @@ import {
   FormTextInput,
   FormPasswordInput,
 } from '@components';
+import {AuthScreenProps} from '@routes';
 
 import {loginSchema, LoginSchema} from './loginSchema';
-import {AuthScreenProps} from '@routes';
 
 export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
   const {control, formState, handleSubmit} = useForm<LoginSchema>({

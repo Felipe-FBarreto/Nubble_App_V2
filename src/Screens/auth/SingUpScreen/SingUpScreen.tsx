@@ -11,9 +11,9 @@ import {
   Screen,
 } from '@components';
 import {useNavigationResetSucess} from '@hooks';
+import {AuthScreenProps} from '@routes';
 
 import {SingUpSchema, singUpSchema} from './singUpSchema';
-import {AuthScreenProps} from '@routes';
 
 export function SingUpScreen({}: AuthScreenProps<'SingUpScreen'>) {
   const {control, formState, handleSubmit} = useForm<SingUpSchema>({
