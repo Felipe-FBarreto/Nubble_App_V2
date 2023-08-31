@@ -15,6 +15,12 @@ export function SettingsScreen({navigation}: AppScreenProps<'SettingsScreen'>) {
           navigation.navigate('AppTabNavigator', {screen: 'NewPostScreen'})
         }
       />
+      <Button
+        title="Favorite"
+        onPress={() =>
+          navigation.navigate('AppTabNavigator', {screen: 'FavoriteScreen'})
+        }
+      />
     </Screen>
   );
 }
