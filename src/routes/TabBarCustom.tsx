@@ -1,10 +1,19 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {} from 'react-native';
 
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 
-import {Box, Icon, Text, TouchableOpacityBox} from '@components';
+import {
+  Box,
+  BoxProps,
+  Icon,
+  RestyleComponentProps,
+  Text,
+  TextProps,
+  TouchableOpacityBox,
+} from '@components';
+import {useAppSafeArea} from '@hooks';
+import {$shadowProps} from '@theme';
 
 import {AppTabBottomTabParamList} from './AppTabNavigator';
 import {mapScreenTabProps} from './mapScreenTabProps';
@@ -14,8 +23,10 @@ export function AppTabCustom({
   descriptors,
   navigation,
 }: BottomTabBarProps) {
+  const {bottom} = useAppSafeArea();
+
   return (
-    <Box flexDirection="row">
+    <Box {...$boxWrapper} style={[{paddingBottom: bottom}, $shadowProps]}>
       {state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
         const tabIte =
@@ -31,7 +42,11 @@ export function AppTabCustom({
 
           if (!isFocused && !event.defaultPrevented) {
             // The `merge: true` option makes sure that the params inside the tab screen are preserved
-            navigation.navigate({name: route.name, merge: true});
+            navigation.navigate({
+              name: route.name,
+              params: route.params,
+              merge: true,
+            });
           }
         };
 
@@ -44,8 +59,7 @@ export function AppTabCustom({
 
         return (
           <TouchableOpacityBox
-            alignItems="center"
-            accessibilityRole="button"
+            {...$itemWrapper}
             accessibilityState={isFocused ? {selected: true} : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
@@ -57,7 +71,7 @@ export function AppTabCustom({
               color={isFocused ? 'primary' : 'backgroundContrast'}
             />
             <Text
-              preset="paragraphCaption"
+              {...$label}
               color={isFocused ? 'primary' : 'backgroundContrast'}>
               {tabIte.label}
             </Text>
@@ -67,3 +81,19 @@ export function AppTabCustom({
     </Box>
   );
 }
+
+const $label: TextProps = {
+  marginTop: 's4',
+  semiBold: true,
+  preset: 'paragraphCaption',
+};
+const $itemWrapper: RestyleComponentProps = {
+  activeOpacity: 1,
+  alignItems: 'center',
+  accessibilityRole: 'button',
+};
+const $boxWrapper: BoxProps = {
+  paddingTop: 's12',
+  backgroundColor: 'background',
+  flexDirection: 'row',
+};
