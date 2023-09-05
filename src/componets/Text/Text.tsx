@@ -57,7 +57,10 @@ export function Text({
   const fontFamily = getFontFamily(preset, bold, italic, semiBold);
 
   return (
-    <SRText style={[$fontSizes[preset], style, {fontFamily}]} {...rest}>
+    <SRText
+      color="backgroundContrast"
+      style={[$fontSizes[preset], style, {fontFamily}]}
+      {...rest}>
       {children}
     </SRText>
   );

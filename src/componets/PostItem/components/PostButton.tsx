@@ -11,7 +11,7 @@ export function PostButton({author, commentCount, text}: Props) {
 
   return (
     <Box mt="s16">
-      <Text preset="paragraphMedium" bold>
+      <Text color="backgroundContrast" preset="paragraphMedium" bold>
         {author.userName}
       </Text>
       <Text color="gray1" mb="s8" preset="paragraphMedium">
