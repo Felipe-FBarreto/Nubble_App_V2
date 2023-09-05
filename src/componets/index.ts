@@ -8,3 +8,8 @@ export * from './PasswordInput/PasswordInput';
 export * from './Screen/Screen';
 export * from './Text/Text';
 export * from './TextInput/TextInput';
+export * from './PostItem/PostItem';
+export * from './PostItem/components/PostHeader';
+export * from './PostItem/components/PostImage';
+export * from './PostItem/components/PostAction';
+export * from './PostItem/components/PostButton';

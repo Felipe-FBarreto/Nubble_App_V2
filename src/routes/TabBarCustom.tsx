@@ -59,6 +59,7 @@ export function AppTabCustom({
 
         return (
           <TouchableOpacityBox
+            key={index}
             {...$itemWrapper}
             accessibilityState={isFocused ? {selected: true} : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
